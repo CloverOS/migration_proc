@@ -1,0 +1,1 @@
+seaorm migration macro
