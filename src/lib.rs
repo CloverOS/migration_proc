@@ -8,7 +8,7 @@ use syn::{parse_macro_input, Attribute, Data, DeriveInput};
 pub fn comment(input: TokenStream) -> TokenStream {
     let mut input = parse_macro_input!(input as DeriveInput);
     let name = &input.ident;
-    let result = if let Data::Enum(ref data_enum) = &input.data {
+    let result = if let Data::Enum(data_enum) = &input.data {
         let variants = data_enum.variants.clone().into_iter().map(|variant| {
             let var_name = &variant.ident;
             let docs = variant
